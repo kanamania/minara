@@ -21,6 +21,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import Site from './pages/Site/Site';
 
 setupIonicReact();
 
@@ -28,6 +29,10 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
+        <Route exact path="/site/:id" render={(props) => (
+          <Site id={props.match.params.id} />
+        )}>
+        </Route>
         <Route exact path="/home">
           <Home />
         </Route>

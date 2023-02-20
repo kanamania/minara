@@ -1,0 +1,20 @@
+export interface TSite {
+    minara_id: string,
+    anchor_tenant_id: string,
+    site_name: string,
+    city: string,
+    region: string,
+    zone: string,
+    latitude: string,
+    longitude: string,
+    mp: string,
+    tower_type: string,
+    grid_status: string,
+    site_category: string,
+    tx_status: string,
+    tenants: string,
+    landlord_name: string,
+    landlord_contact: string,
+    field_supervisor_name: string,
+    field_supervisor_contact: string
+}
