@@ -1,0 +1,7 @@
+{
+  "name": "minara",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
