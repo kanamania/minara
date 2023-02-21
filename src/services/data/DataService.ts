@@ -5,7 +5,7 @@ export default class DataService {
     constructor() {
 
     }
-    find(id: number) {
+    find(id: any) {
         return axios.get(`${API_URL}?minara_id=${id}`)
     }
     search(term: string) {

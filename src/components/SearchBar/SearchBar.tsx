@@ -6,7 +6,7 @@ import {TSite} from '../../types/TSite';
 import {Link} from 'react-router-dom';
 
 
-const SearchBar: React.FC = () => {
+const SearchBar: React.FC = (props) => {
     let [term, setTerm] = useState("");
     let [filtered, setFiltered] = useState([]);
     const dataService = new DataService();
@@ -23,24 +23,21 @@ const SearchBar: React.FC = () => {
         }
         setSearch(false)
     });
-    return (
-        <>
-        <IonSearchbar value={term} onIonChange={(e: any) => {setTerm(e.target.value); setSearch(true)}} placeholder="Search sites by name|id">
+    return <>
+    <IonSearchbar value={term} onIonChange={(e: any) => {setTerm(e.target.value); setSearch(true)}} placeholder="Search sites by name|id">
 
-        </IonSearchbar>
-        <IonList>
-            {filtered.map((item: TSite) => {
-                return <>
-                <IonItem>
-                    <Link to={`/site/${item.minara_id}`}>
-                        {item.minara_id}
-                    </Link>
-                </IonItem>
-                </>
-            })}
-        </IonList>
-        </>
-    );
+    </IonSearchbar>
+    <IonList>
+        {filtered.map((item: TSite, index: number) => <>
+            <IonItem key={`${index}-${item.minara_id}`}>
+                <Link to={`/site/${item.minara_id}`}>
+                    {item.minara_id}
+                </Link>
+            </IonItem>
+            </>
+        )}
+    </IonList>
+    </>;
 };
 
 export default SearchBar;

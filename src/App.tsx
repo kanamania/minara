@@ -22,6 +22,13 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Site from './pages/Site/Site';
+import SiteVisitForm from './pages/Site/Forms/Visit/SiteVisitForm';
+import SiteContacts from './pages/Site/Forms/Contacts/SiteContacts';
+import SiteGrid from './pages/Site/Forms/Grid/SiteGrid';
+import SiteTenants from './pages/Site/Forms/Tenants/SiteTenants';
+import SiteDG from './pages/Site/Forms/DG/SiteDG';
+import SiteInfo from './pages/Site/Forms/Info/SiteInfo';
+import SiteLocate from './pages/Site/Forms/Locate/SiteLocate';
 
 setupIonicReact();
 
@@ -30,9 +37,29 @@ const App: React.FC = () => (
     <IonReactRouter>
       <IonRouterOutlet>
         <Route exact path="/site/:id" render={(props) => (
-          <Site id={props.match.params.id} />
-        )}>
-        </Route>
+          <Site key="site" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/visit/:id" render={(props) => (
+          <SiteVisitForm key="visit" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/locate/:id" render={(props) => (
+          <SiteLocate key="locate" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/info/:id" render={(props) => (
+          <SiteInfo key="info" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/dg/:id" render={(props) => (
+          <SiteDG key="dg" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/tenants/:id" render={(props) => (
+          <SiteTenants key="tenants" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/grid/:id" render={(props) => (
+          <SiteGrid key="grid" id={props.match.params.id} />
+        )}></Route>
+        <Route exact path="/contacts/:id" render={(props) => (
+          <SiteContacts key="contacts" id={props.match.params.id} />
+        )}></Route>
         <Route exact path="/home">
           <Home />
         </Route>

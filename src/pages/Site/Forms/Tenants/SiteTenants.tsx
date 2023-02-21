@@ -1,10 +1,16 @@
 import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
-import './Home.css';
-import SearchBar from '../components/SearchBar/SearchBar';
+import SearchBar from '../../../../components/SearchBar/SearchBar';
+import './SiteTenants.css';
 
-const Home: React.FC = () => {
-    const title = "Home";
+interface SiteTenantsProps {
+    id: string,
+    key: string,
+}
+
+const SiteTenants: React.FC<SiteTenantsProps> = (props) => {
+    const title = "Tenants Form";
     document.title = `${title} - Minara`;
+
     return (
         <IonPage>
             <IonHeader>
@@ -13,10 +19,10 @@ const Home: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent fullscreen>
-                <SearchBar key="searchbar"/>
+
             </IonContent>
         </IonPage>
     );
-};
+}
 
-export default Home;
+export default SiteTenants;

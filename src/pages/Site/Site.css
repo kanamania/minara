@@ -22,6 +22,9 @@
 .label {
     display: flex;
     align-content: center;
+    font-weight: bold;
+    color: green;
+    text-decoration: none;
 }
 .icon {
     font-size: 3rem;

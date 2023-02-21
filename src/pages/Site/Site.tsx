@@ -24,9 +24,10 @@ import {TSite} from '../../types/TSite';
 import {Link} from 'react-router-dom';
 
 interface SiteProps {
-    id: string
+    id: string,
+    key: string,
 }
-const Home: React.FC<SiteProps> = (props) => {
+const Site: React.FC<SiteProps> = (props) => {
     const dataService = new DataService();
     const operations = [
         [
@@ -85,13 +86,15 @@ const Home: React.FC<SiteProps> = (props) => {
 
     useEffect(() => {
         if(initial) {
-            dataService.find(parseInt(props.id)).then(res => {
+            console.log({props})
+            dataService.find(props.id).then(res => {
                 setSite(res.data);
                 title = `${res.data.minara_id} - ${res.data.site_name}`;
             });
             setInitial(false);
         }
     });
+    document.title = `${title} - Minara`;
 
     return (
         <IonPage>
@@ -107,12 +110,12 @@ const Home: React.FC<SiteProps> = (props) => {
                     </IonToolbar>
                 </IonHeader>
                 <IonGrid>
-                    {operations.map((row) => {
+                    {operations.map((row, rowIndex) => {
                         return <>
-                        <IonRow className="row">
-                            {row.map((col) => {
+                        <IonRow key={rowIndex} className="row">
+                            {row.map((col, colIndex) => {
                             return <>
-                            <IonCol className="col">
+                            <IonCol key={colIndex} className="col">
                                 {col.url && col.icon ?
                                 <Link to={col.url} >
                                     <IonIcon className="icon" icon={col.icon} />
@@ -130,4 +133,4 @@ const Home: React.FC<SiteProps> = (props) => {
     );
 };
 
-export default Home;
+export default Site;
