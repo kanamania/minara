@@ -86,7 +86,6 @@ const Site: React.FC<SiteProps> = (props) => {
 
     useEffect(() => {
         if(initial) {
-            console.log({props})
             dataService.find(props.id).then(res => {
                 setSite(res.data);
                 title = `${res.data.minara_id} - ${res.data.site_name}`;

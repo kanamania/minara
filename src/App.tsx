@@ -22,7 +22,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Site from './pages/Site/Site';
-import SiteVisitForm from './pages/Site/Forms/Visit/SiteVisitForm';
+import SiteVisit from './pages/Site/Forms/Visit/SiteVisit';
 import SiteContacts from './pages/Site/Forms/Contacts/SiteContacts';
 import SiteGrid from './pages/Site/Forms/Grid/SiteGrid';
 import SiteTenants from './pages/Site/Forms/Tenants/SiteTenants';
@@ -40,7 +40,7 @@ const App: React.FC = () => (
           <Site key="site" id={props.match.params.id} />
         )}></Route>
         <Route exact path="/visit/:id" render={(props) => (
-          <SiteVisitForm key="visit" id={props.match.params.id} />
+          <SiteVisit key="visit" id={props.match.params.id} />
         )}></Route>
         <Route exact path="/locate/:id" render={(props) => (
           <SiteLocate key="locate" id={props.match.params.id} />
