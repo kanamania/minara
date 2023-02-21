@@ -1,5 +1,4 @@
 import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/react';
-import SearchBar from '../../../../components/SearchBar/SearchBar';
 import './SiteVisitForm.css';
 
 interface VisitFormProps {
